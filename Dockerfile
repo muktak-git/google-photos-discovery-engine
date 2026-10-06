@@ -21,11 +21,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN python -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
-# Copy package configurations and install dependencies
+# Copy package configurations and source for dependency resolution
 COPY pyproject.toml .
+COPY src/ ./src/
 RUN pip install --upgrade pip setuptools wheel && \
     pip install . && \
-    pip install google-play-scraper app-store-scraper spacy && \
+    pip install google-play-scraper app-store-scraper requests urllib3 spacy && \
     python -m spacy download en_core_web_sm || true
 
 # Stage 2: Runtime Production Image
@@ -49,7 +50,6 @@ COPY --from=builder /opt/venv /opt/venv
 # Copy application source code and assets
 COPY src/ /app/src/
 COPY scripts/ /app/scripts/
-COPY config/ /app/config/
 COPY frontend/ /app/frontend/
 COPY data/ /app/data/
 COPY pyproject.toml /app/
