@@ -1,0 +1,121 @@
+{
+  "version": "1.0",
+  "total_clusters": 2,
+  "clusters": [
+    {
+      "cluster_id": "cluster_02",
+      "cluster_title": "Document OCR & Numerical Receipt Indexing Failure",
+      "description": "Users recall text-heavy media (receipts, stickers, bills, invoices) by prices, merchant names, or partial words. Search fails due to unindexed small printed/handwritten text or currency symbols.",
+      "primary_failure_mode": "ocr_failure",
+      "photo_types": [
+        "receipt"
+      ],
+      "record_count": 2,
+      "frequency_score": 0.5,
+      "severity_score": 4.5,
+      "retrieval_impact_index": 2.25,
+      "sample_record_ids": [
+        "rec_03",
+        "rec_04"
+      ],
+      "representative_cues": [
+        "receipt Best Buy",
+        "invoice laptop receipt"
+      ],
+      "top_verbatim_quotes": [
+        "Can't find my car insurance policy receipt from Best Buy",
+        "Need to find my laptop receipt invoice text was missing"
+      ],
+      "matrix_quadrant": "quadrant_1_core_opportunities"
+    },
+    {
+      "cluster_id": "cluster_01",
+      "cluster_title": "Visual Attribute & Color-Scene Semantic Mismatch",
+      "description": "Users recall salient visual cues (clothing colors, background structures, or negated attributes like 'not smiling'). Search produces semantic drift (e.g. matching 'yellow jacket' to wasps or 'red barn' to red cars).",
+      "primary_failure_mode": "semantic_drift",
+      "photo_types": [
+        "candid portrait"
+      ],
+      "record_count": 2,
+      "frequency_score": 0.5,
+      "severity_score": 4.0,
+      "retrieval_impact_index": 2.0,
+      "sample_record_ids": [
+        "rec_01",
+        "rec_02"
+      ],
+      "representative_cues": [
+        "yellow jacket",
+        "hiking trail",
+        "yellow shirt",
+        "lake"
+      ],
+      "top_verbatim_quotes": [
+        "Looking for a yellow jacket photo on a hiking trail",
+        "Searching for a photo of my friend wearing yellow shirt"
+      ],
+      "matrix_quadrant": "quadrant_1_core_opportunities"
+    }
+  ],
+  "problem_map_quadrants": {
+    "quadrant_1_core_opportunities": [
+      {
+        "cluster_id": "cluster_02",
+        "cluster_title": "Document OCR & Numerical Receipt Indexing Failure",
+        "description": "Users recall text-heavy media (receipts, stickers, bills, invoices) by prices, merchant names, or partial words. Search fails due to unindexed small printed/handwritten text or currency symbols.",
+        "primary_failure_mode": "ocr_failure",
+        "photo_types": [
+          "receipt"
+        ],
+        "record_count": 2,
+        "frequency_score": 0.5,
+        "severity_score": 4.5,
+        "retrieval_impact_index": 2.25,
+        "sample_record_ids": [
+          "rec_03",
+          "rec_04"
+        ],
+        "representative_cues": [
+          "receipt Best Buy",
+          "invoice laptop receipt"
+        ],
+        "top_verbatim_quotes": [
+          "Can't find my car insurance policy receipt from Best Buy",
+          "Need to find my laptop receipt invoice text was missing"
+        ],
+        "matrix_quadrant": "quadrant_1_core_opportunities"
+      },
+      {
+        "cluster_id": "cluster_01",
+        "cluster_title": "Visual Attribute & Color-Scene Semantic Mismatch",
+        "description": "Users recall salient visual cues (clothing colors, background structures, or negated attributes like 'not smiling'). Search produces semantic drift (e.g. matching 'yellow jacket' to wasps or 'red barn' to red cars).",
+        "primary_failure_mode": "semantic_drift",
+        "photo_types": [
+          "candid portrait"
+        ],
+        "record_count": 2,
+        "frequency_score": 0.5,
+        "severity_score": 4.0,
+        "retrieval_impact_index": 2.0,
+        "sample_record_ids": [
+          "rec_01",
+          "rec_02"
+        ],
+        "representative_cues": [
+          "yellow jacket",
+          "hiking trail",
+          "yellow shirt",
+          "lake"
+        ],
+        "top_verbatim_quotes": [
+          "Looking for a yellow jacket photo on a hiking trail",
+          "Searching for a photo of my friend wearing yellow shirt"
+        ],
+        "matrix_quadrant": "quadrant_1_core_opportunities"
+      }
+    ],
+    "quadrant_2_quality_of_life": [],
+    "quadrant_3_critical_blockers": [],
+    "quadrant_4_niche_edge_cases": []
+  }
+}

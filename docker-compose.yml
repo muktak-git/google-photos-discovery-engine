@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+  # Web Dashboard & REST API
+  discovery-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: google-photos-discovery-web
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - PHOTO_ENGINE_LOG_LEVEL=INFO
+      - PHOTO_ENGINE_DEBUG=false
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - GROQ_API_KEY=${GROQ_API_KEY:-}
+    volumes:
+      - photos_data:/app/data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/pipeline-stats"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Scheduled Batch Pipeline Runner
+  discovery-pipeline:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: google-photos-pipeline-runner
+    profiles:
+      - pipeline
+    environment:
+      - PHOTO_ENGINE_LOG_LEVEL=INFO
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - GROQ_API_KEY=${GROQ_API_KEY:-}
+    volumes:
+      - photos_data:/app/data
+    command: ["python", "scripts/run_pipeline.py", "--limit", "1000", "--export-reports"]
+
+volumes:
+  photos_data:
+    driver: local

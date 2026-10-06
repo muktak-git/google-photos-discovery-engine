@@ -1,0 +1,20 @@
+{
+  "total_extracted": 16,
+  "failure_mode_distribution": {
+    "other": 1,
+    "ocr_failure": 8,
+    "semantic_drift": 4,
+    "chronological_overload": 2,
+    "zero_results": 1
+  },
+  "top_photo_types": {
+    "candid portrait": 5,
+    "receipt": 5,
+    "screenshot": 3,
+    "other": 1,
+    "vacation photo": 1
+  },
+  "mean_frustration_score": 3.44,
+  "quote_verification_pass_rate": 100.0,
+  "signals_output_path": "C:\\Users\\Mukta Kulkarni\\Downloads\\GooglePhotosEngine\\data\\extracted\\signals.jsonl"
+}

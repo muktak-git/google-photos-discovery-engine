@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: google-photos-discovery-engine
+    runtime: docker
+    plan: free
+    region: oregon
+    envVars:
+      - key: PHOTO_ENGINE_LOG_LEVEL
+        value: INFO
+      - key: PHOTO_ENGINE_DEBUG
+        value: "false"
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false

@@ -1,0 +1,68 @@
+Problem Statement
+
+The goal is to **increase the percentage of users who successfully retrieve a photo they remember but cannot precisely describe** when they start searching. The challenge is **not to improve search in general**. Your job is to understand how people remember old visual information, where the existing retrieval experience breaks down, and which opportunity can meaningfully improve successful retrieval. To do this, you will build an **AI-powered discovery engine** that analyzes public user feedback and conversations about photo retrieval **at scale**, and turns them into evidence-backed retrieval problems and opportunity areas your team can compare and act on.
+
+**End-to-end flow (what "done" looks like):**
+
+- Collect public conversations about finding photos from sources such as Google Play Store reviews, App Store reviews, Google Photos community/support discussions, social media, YouTube comments, and forums.
+
+- Filter them down to the ones that are about retrieving a photo the user only partly remembers.
+
+- Extract structured signals from each conversation: the type of photo, what the user remembered, what they had forgotten, how they phrased the search, and where it failed.
+
+- Cluster these signals into distinct retrieval problems and compare them using real user evidence.
+
+- Surface the most promising opportunity area, backed by verbatim user quotes.
+
+Deliverables
+
+**The discovery engine must help answer questions such as (sample questions only):**
+
+- What kinds of old photos do users struggle to retrieve?
+
+- What information do people actually remember about a photo?
+
+- What information have they forgotten?
+
+- How do users formulate searches when their memory is incomplete?
+
+**Final output must include:**
+
+- **Retrieval problem map** (the distinct problems found, compared on how often they occur and how badly they hurt retrieval)
+
+- **Real user quotes** (verbatim snippets from public sources, no invented wording)
+
+- **Opportunity areas** (concrete directions grounded in the evidence, with one recommended opportunity that can most improve successful retrieval)
+
+Who This Helps
+
+| **Audience** | **Why** |
+| --- | --- |
+| **Product / Growth** | Prioritize the retrieval opportunity with the highest impact on success rate |
+| **Research / Design** | Understand how people actually remember and describe old photos |
+| **Engineering / ML** | Know which kinds of memory cues and queries the system must handle |
+| **Leadership** | A clear, evidence-based view of where retrieval breaks down without reading raw feedback |
+
+What You Must Build
+
+- **Ingest public feedback** from multiple sources (store reviews, community/support threads, social media, YouTube comments, forums), keeping fields such as source, text, and date.
+
+- **Identify retrieval-related conversations** and separate them from general complaints about search or the app.
+
+- **Extract memory signals** from each conversation: photo type, remembered details, forgotten details, and how the search was worded.
+
+- **Group conversations into distinct retrieval problems** and compare them with evidence from real users.
+
+- **Generate an opportunity analysis** that ranks the opportunity areas and recommends one.
+
+Key Constraints
+
+- **Sources:** Use **publicly available data only**; no access behind logins and no ToS-violating automation.
+
+- **Scope:** Focus on photos users **remember but cannot precisely describe**; do not widen this into general search improvement.
+
+- **Depth:** Go **beyond summarizing reviews or sentiment analysis**; the workflow must identify and compare different problems and opportunity areas.
+
+- **Evidence:** Every finding must be backed by **real user evidence**, and quotes must be **verbatim**.
+
+- **Privacy:** **Do not include PII**; no usernames, emails, device IDs, or other identifiable user data in any artifact (quotes should be anonymous / stripped as needed).
