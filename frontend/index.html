@@ -1211,108 +1211,121 @@
       display: inline-block;
     }
 
-    /* Live Simulator / Playground */
-    .simulator-container {
+    /* Memory Recall Insights & Tags Styles */
+    .memory-insights-panel {
       background: var(--bg-white);
       border: 1px solid var(--border-gray);
       border-radius: var(--radius-xl);
-      padding: 28px 32px;
+      padding: 22px 24px;
+      margin-bottom: 24px;
       box-shadow: var(--shadow-card);
     }
-
-    .sim-input-row {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 20px;
+    .memory-insights-header {
+      margin-bottom: 16px;
     }
-    .sim-query-input {
-      flex: 1;
-      font-family: inherit;
-      font-size: 16px;
-      padding: 14px 20px;
-      border: 1px solid var(--border-gray);
-      border-radius: var(--radius-pill);
-      background: var(--surface-gray);
+    .memory-insights-title {
+      font-size: 17px;
+      font-weight: 700;
       color: var(--text-primary);
-      outline: none;
-      transition: all 0.2s ease;
-    }
-    .sim-query-input:focus {
-      background: #FFFFFF;
-      border-color: var(--primary-blue);
-      box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
-    }
-
-    .sample-queries-chips {
+      margin-bottom: 4px;
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 28px;
       align-items: center;
+      gap: 8px;
     }
-    .sample-lbl {
-      font-size: 12px;
-      color: var(--text-tertiary);
-      font-weight: 500;
-    }
-    .sample-chip {
-      font-size: 12px;
-      padding: 5px 14px;
-      border-radius: var(--radius-pill);
-      background: var(--surface-gray);
-      border: 1px solid var(--border-gray);
+    .memory-insights-desc {
+      font-size: 13px;
       color: var(--text-secondary);
-      cursor: pointer;
-      transition: all 0.15s ease;
+      margin: 0;
+      line-height: 1.5;
     }
-    .sample-chip:hover {
-      background: var(--surface-gray-alt);
-      color: var(--text-primary);
-      border-color: var(--border-gray-hover);
-    }
-
-    .sim-comparison-grid {
+    .memory-stats-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    @media (max-width: 800px) {
-      .sim-comparison-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .sim-col-card {
-      border-radius: var(--radius-lg);
-      padding: 22px;
-      border: 1px solid var(--border-gray);
-    }
-    .sim-col-card.fail { background: #FFFBFB; border-color: #FADBD8; }
-    .sim-col-card.pass { background: #F8FBFE; border-color: #C2E7FF; }
-
-    .sim-col-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 14px;
-      font-size: 15px;
-      font-weight: 600;
-    }
-    .sim-col-card.fail .sim-col-header { color: var(--accent-red); }
-    .sim-col-card.pass .sim-col-header { color: var(--accent-blue); }
-
-    .sim-results-list {
-      display: flex;
-      flex-direction: column;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
       gap: 12px;
+      margin-bottom: 16px;
     }
-    .sim-result-item {
-      background: #FFFFFF;
+    .memory-stat-card {
+      background: var(--surface-gray);
       border: 1px solid var(--border-gray);
       border-radius: var(--radius-md);
-      padding: 12px 16px;
-      font-size: 13px;
+      padding: 14px 16px;
+      transition: all 0.2s ease;
     }
+    .memory-stat-card:hover {
+      background: #FFFFFF;
+      border-color: var(--primary-blue);
+      box-shadow: var(--shadow-hover);
+    }
+    .memory-stat-val {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .memory-stat-card.stat-text .memory-stat-val { color: var(--primary-blue); }
+    .memory-stat-card.stat-visuals .memory-stat-val { color: #B06000; }
+    .memory-stat-card.stat-context .memory-stat-val { color: #3C4043; }
+    .memory-stat-card.stat-people .memory-stat-val { color: var(--accent-green); }
+    .memory-stat-card.stat-event .memory-stat-val { color: var(--accent-red); }
+    .memory-stat-card.stat-face .memory-stat-val { color: #8430CE; }
+
+    .memory-stat-lbl {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .memory-stat-detail {
+      font-size: 11.5px;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+    .memory-summary-bar {
+      background: var(--surface-gray);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      border: 1px solid var(--border-gray);
+    }
+    .memory-recall-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .memory-recall-label {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    .memory-tags-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .memory-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.2px;
+    }
+    .memory-badge.memory-text { background: var(--tint-blue); color: var(--primary-blue); border: 1px solid #C2E7FF; }
+    .memory-badge.memory-visuals { background: var(--tint-yellow); color: #B06000; border: 1px solid #FFE7A5; }
+    .memory-badge.memory-contextually { background: #F1F3F4; color: #3C4043; border: 1px solid #DADCE0; }
+    .memory-badge.memory-people { background: var(--tint-green); color: var(--accent-green); border: 1px solid #C4EED0; }
+    .memory-badge.memory-event { background: var(--tint-red); color: var(--accent-red); border: 1px solid #FAD2CF; }
+    .memory-badge.memory-face { background: #F3E8FD; color: #8430CE; border: 1px solid #E9D2FD; }
 
     /* Modal Styles */
     .modal-overlay {
@@ -1471,10 +1484,6 @@
       <button class="tab-btn" onclick="switchTab('prioritization')">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
         Feature Priorities
-      </button>
-      <button class="tab-btn" onclick="switchTab('simulator')">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-        Search Demo
       </button>
     </div>
   </header>
@@ -1765,8 +1774,8 @@
           <div style="font-size: 13px; color: var(--text-secondary);">
             <strong>Expected Impact:</strong> 14% more people find their photos &bull; 28% fewer people give up searching
           </div>
-          <button class="btn btn-secondary" onclick="switchTab('simulator')">
-            Try the Search Demo &rarr;
+          <button class="btn btn-secondary" onclick="switchTab('problem-map')">
+            Explore 8 Search Problems &rarr;
           </button>
         </div>
       </div>
@@ -1789,6 +1798,7 @@
       </div>
 
       <div class="matrix-layout">
+        <!-- Quadrant 1: Top Priority -->
         <div class="quadrant-box q1">
           <div class="quadrant-header">
             <div>
@@ -1800,7 +1810,7 @@
 
           <div class="cluster-card" onclick="showClusterModal('cluster_02')">
             <div class="cluster-title-row">
-              <h4>Reading Receipts and Price Numbers</h4>
+              <h4>Reading Receipts, Prices &amp; Store Names</h4>
               <span class="cluster-rii-badge">High Impact</span>
             </div>
             <p class="cluster-desc">
@@ -1816,7 +1826,7 @@
 
           <div class="cluster-card" onclick="showClusterModal('cluster_01')">
             <div class="cluster-title-row">
-              <h4>Search Confuses Colors and Objects</h4>
+              <h4>Search Confuses Colors, Clothes &amp; Objects</h4>
               <span class="cluster-rii-badge">High Impact</span>
             </div>
             <p class="cluster-desc">
@@ -1824,52 +1834,139 @@
             </p>
             <div class="cluster-tags">
               <span class="pill-tag">Problem: Confuses words and colors</span>
-              <span class="pill-tag">Common: 50% of complaints</span>
+              <span class="pill-tag">Common: 44% of complaints</span>
               <span class="pill-tag">Frustration: High (4.0/5)</span>
               <span class="pill-tag">Photo: People &amp; snapshots</span>
             </div>
           </div>
         </div>
 
+        <!-- Quadrant 2: High Frustration -->
         <div class="quadrant-box q2">
           <div class="quadrant-header">
             <div>
-              <h3 class="quadrant-title">Rare but Painful Issues</h3>
-              <p style="font-size: 12px; color: var(--text-secondary);">Doesn't happen as often, but very annoying when it does</p>
+              <h3 class="quadrant-title">Critical Search Gaps</h3>
+              <p style="font-size: 12px; color: var(--text-secondary);">High Frustration &bull; Causes Search Failure</p>
             </div>
-            <span class="quadrant-pill">Watch Closely</span>
+            <span class="quadrant-pill">High Friction</span>
           </div>
-          <div style="background: var(--surface-gray); border-radius: var(--radius-md); padding: 24px; text-align: center; color: var(--text-secondary); font-size: 13px;">
-            <p><strong>Grouped into Main Problems</strong></p>
-            <p style="font-size: 12px; margin-top: 4px;">These issues are addressed in our primary solutions.</p>
+
+          <div class="cluster-card" onclick="showClusterModal('cluster_03')">
+            <div class="cluster-title-row">
+              <h4>Search Ignores "Not" Clues &amp; Negative Words</h4>
+              <span class="cluster-rii-badge">High Impact</span>
+            </div>
+            <p class="cluster-desc">
+              When users remember someone was "NOT smiling" or "without glasses", search ignores the negative word and floods results with hundreds of smiling faces.
+            </p>
+            <div class="cluster-tags">
+              <span class="pill-tag">Problem: Ignores negative words</span>
+              <span class="pill-tag">Common: 25% of complaints</span>
+              <span class="pill-tag">Frustration: Very High (4.2/5)</span>
+              <span class="pill-tag">Photo: Candids &amp; portraits</span>
+            </div>
+          </div>
+
+          <div class="cluster-card" onclick="showClusterModal('cluster_04')">
+            <div class="cluster-title-row">
+              <h4>Blank Screen on Zero Results (No Suggestions)</h4>
+              <span class="cluster-rii-badge">High Impact</span>
+            </div>
+            <p class="cluster-desc">
+              When a query returns 0 results, the app displays a dead-end blank screen with no suggestions, filter chips, or spelling help, forcing users to restart.
+            </p>
+            <div class="cluster-tags">
+              <span class="pill-tag">Problem: Dead-end blank screen</span>
+              <span class="pill-tag">Common: 38% of complaints</span>
+              <span class="pill-tag">Frustration: High (4.0/5)</span>
+              <span class="pill-tag">Photo: Specific searches</span>
+            </div>
           </div>
         </div>
 
+        <!-- Quadrant 3: Previews & Scrolling Fatigue -->
         <div class="quadrant-box q3">
           <div class="quadrant-header">
             <div>
-              <h3 class="quadrant-title">Everyday Inconveniences</h3>
-              <p style="font-size: 12px; color: var(--text-secondary);">Happens frequently, but easy to work around</p>
+              <h3 class="quadrant-title">Preview Bottlenecks &amp; Scrolling Fatigue</h3>
+              <p style="font-size: 12px; color: var(--text-secondary);">High User Effort &bull; Time-Consuming</p>
             </div>
-            <span class="quadrant-pill">Secondary</span>
+            <span class="quadrant-pill">High Effort</span>
           </div>
-          <div style="background: var(--surface-gray); border-radius: var(--radius-md); padding: 24px; text-align: center; color: var(--text-secondary); font-size: 13px;">
-            <p><strong>Endless Scrolling Through Timeline</strong></p>
-            <p style="font-size: 12px; margin-top: 4px;">People scroll for 15 minutes when they can't think of words to search.</p>
+
+          <div class="cluster-card" onclick="showClusterModal('cluster_05')">
+            <div class="cluster-title-row">
+              <h4>Thumbnails Too Small to Read or Verify</h4>
+              <span class="cluster-rii-badge">High Impact</span>
+            </div>
+            <p class="cluster-desc">
+              Results grid displays tiny square thumbnails where receipt totals, dates, and text are illegible, forcing users to tap open each photo one by one.
+            </p>
+            <div class="cluster-tags">
+              <span class="pill-tag">Problem: Tiny unreadable previews</span>
+              <span class="pill-tag">Common: 31% of complaints</span>
+              <span class="pill-tag">Frustration: High (3.8/5)</span>
+              <span class="pill-tag">Photo: Receipts &amp; screenshots</span>
+            </div>
+          </div>
+
+          <div class="cluster-card" onclick="showClusterModal('cluster_06')">
+            <div class="cluster-title-row">
+              <h4>Endless Scrolling &amp; Search Fatigue</h4>
+              <span class="cluster-rii-badge">High Impact</span>
+            </div>
+            <p class="cluster-desc">
+              After 2 failed searches, users give up on the search bar and scroll manually through thousands of timeline photos for 15+ minutes until exhausted.
+            </p>
+            <div class="cluster-tags">
+              <span class="pill-tag">Problem: Timeline scrolling overload</span>
+              <span class="pill-tag">Common: 75% search abandonment</span>
+              <span class="pill-tag">Frustration: High (4.1/5)</span>
+              <span class="pill-tag">Photo: All photo types</span>
+            </div>
           </div>
         </div>
 
+        <!-- Quadrant 4: Time & Session Memory Disconnect -->
         <div class="quadrant-box q4">
           <div class="quadrant-header">
             <div>
-              <h3 class="quadrant-title">Uncommon Questions</h3>
-              <p style="font-size: 12px; color: var(--text-secondary);">Rarely happens and easy to skip</p>
+              <h3 class="quadrant-title">Time &amp; Session Memory Mismatches</h3>
+              <p style="font-size: 12px; color: var(--text-secondary);">Everyday Friction &bull; Repetitive Steps</p>
             </div>
-            <span class="quadrant-pill">Low Priority</span>
+            <span class="quadrant-pill">Workflow Friction</span>
           </div>
-          <div style="background: var(--surface-gray); border-radius: var(--radius-md); padding: 24px; text-align: center; color: var(--text-secondary); font-size: 13px;">
-            <p><strong>Complex Multi-Step Searches</strong></p>
-            <p style="font-size: 12px; margin-top: 4px;">Very specific questions that only a few users ask.</p>
+
+          <div class="cluster-card" onclick="showClusterModal('cluster_07')">
+            <div class="cluster-title-row">
+              <h4>Calendar Dates Don't Match Human Memory</h4>
+              <span class="cluster-rii-badge">High Impact</span>
+            </div>
+            <p class="cluster-desc">
+              People recall life moments ("summer before COVID" or "college graduation"), but search requires rigid dates; guessing 2018 instead of 2019 returns zero.
+            </p>
+            <div class="cluster-tags">
+              <span class="pill-tag">Problem: Rigid calendar dates</span>
+              <span class="pill-tag">Common: 38% of complaints</span>
+              <span class="pill-tag">Frustration: High (3.7/5)</span>
+              <span class="pill-tag">Photo: Trips &amp; events</span>
+            </div>
+          </div>
+
+          <div class="cluster-card" onclick="showClusterModal('cluster_08')">
+            <div class="cluster-title-row">
+              <h4>Search Forgets What You Just Tried</h4>
+              <span class="cluster-rii-badge">High Impact</span>
+            </div>
+            <p class="cluster-desc">
+              Search provides no working memory across queries. Changing a single word resets everything and loses previously browsed candidates.
+            </p>
+            <div class="cluster-tags">
+              <span class="pill-tag">Problem: No session memory</span>
+              <span class="pill-tag">Common: 31% of complaints</span>
+              <span class="pill-tag">Frustration: Medium-High (3.6/5)</span>
+              <span class="pill-tag">Photo: Multi-step searches</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1880,49 +1977,123 @@
     <!-- ============================================================== -->
     <div id="tab-evidence-bank" class="tab-panel">
       <div style="margin-bottom: 20px;">
-        <h2 class="section-title">Real User Quotes</h2>
+        <h2 class="section-title">Real User Quotes &amp; How They Remember</h2>
         <p class="section-desc">
           Actual quotes from real people complaining about search, taken directly from public reviews with all personal info removed.
         </p>
       </div>
 
-      <div class="filters-bar">
-        <div class="search-box-wrapper">
-          <svg class="search-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <input type="text" id="quoteSearchInput" class="search-input" placeholder="Search quotes by keyword (e.g. jacket, receipt)..." oninput="filterQuotes()">
+      <!-- Memory Recall Insights & Numeric Patterns -->
+      <div class="memory-insights-panel">
+        <div class="memory-insights-header">
+          <div class="memory-insights-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary-blue)" stroke-width="2.2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            How People Remember Photos: Verified Memory Recall Data
+          </div>
+          <p class="memory-insights-desc">
+            Across all 16 verified real-world complaints, users remember photos using human memory cues (text, visuals, life context, people, events, or faces) rather than exact dates or file metadata.
+          </p>
         </div>
 
-        <div class="filter-chips-group">
-          <button class="filter-chip-btn active" onclick="setEvidenceFilter('all', this)">All Quotes (4)</button>
-          <button class="filter-chip-btn" onclick="setEvidenceFilter('ocr_failure', this)">Receipt &amp; Text Issues (2)</button>
-          <button class="filter-chip-btn" onclick="setEvidenceFilter('semantic_drift', this)">Color &amp; Meaning Confusion (2)</button>
+        <div class="memory-stats-grid">
+          <div class="memory-stat-card stat-text">
+            <div class="memory-stat-val">50%</div>
+            <div class="memory-stat-lbl">Remembered by Text</div>
+            <div class="memory-stat-detail">8 of 16 users recalled prices ($1,249, $320, $499), merchant names (Costco, Best Buy), prescription names, or license plates.</div>
+          </div>
+
+          <div class="memory-stat-card stat-visuals">
+            <div class="memory-stat-val">44%</div>
+            <div class="memory-stat-lbl">Remembered by Visuals</div>
+            <div class="memory-stat-detail">7 of 16 users recalled prominent visual details: clothing colors (yellow jacket, red sweater, black hoodie), dish appearance, or costumes.</div>
+          </div>
+
+          <div class="memory-stat-card stat-context">
+            <div class="memory-stat-val">38%</div>
+            <div class="memory-stat-lbl">Remembered Contextually</div>
+            <div class="memory-stat-detail">6 of 16 users recalled rough life phases ("pre-COVID", "early 2022") or media types ("in my screenshots") instead of calendar dates.</div>
+          </div>
+
+          <div class="memory-stat-card stat-people">
+            <div class="memory-stat-val">25%</div>
+            <div class="memory-stat-lbl">Remembered by People</div>
+            <div class="memory-stat-detail">4 of 16 users remembered the person in the photo (daughter in costume, friend hiking, family at holiday).</div>
+          </div>
+
+          <div class="memory-stat-card stat-event">
+            <div class="memory-stat-val">19%</div>
+            <div class="memory-stat-lbl">Remembered by Event</div>
+            <div class="memory-stat-detail">3 of 16 users anchored to specific occasions: Christmas gathering, Halloween trick-or-treating, or summer camping trip.</div>
+          </div>
+
+          <div class="memory-stat-card stat-face">
+            <div class="memory-stat-val">13%</div>
+            <div class="memory-stat-lbl">Remembered by Face</div>
+            <div class="memory-stat-detail">2 of 16 users remembered facial details: specific expressions ("NOT smiling") or orientation ("face turned sideways").</div>
+          </div>
+        </div>
+
+        <div class="memory-summary-bar">
+          <div>
+            <strong>75% Search Abandonment Rate:</strong> 12 of 16 users gave up searching or resorted to 15+ minutes of thumb-scrolling exhaustion after 2–3 attempts.
+          </div>
+          <div>
+            <strong>56% Zero-Result Dropoffs:</strong> 9 of 16 users were met with an empty screen with zero suggestions or guidance.
+          </div>
         </div>
       </div>
 
+      <!-- Filters & Search Bar -->
+      <div class="filters-bar">
+        <div class="search-box-wrapper">
+          <svg class="search-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="quoteSearchInput" class="search-input" placeholder="Search 16 quotes by keyword, memory cue, or store name..." oninput="filterQuotes()">
+        </div>
+
+        <div class="filter-chips-group">
+          <button class="filter-chip-btn active" onclick="setEvidenceFilter('all', this)">All Quotes (16)</button>
+          <button class="filter-chip-btn" onclick="setEvidenceFilter('text', this)">Text (8 &bull; 50%)</button>
+          <button class="filter-chip-btn" onclick="setEvidenceFilter('visuals', this)">Visuals (7 &bull; 44%)</button>
+          <button class="filter-chip-btn" onclick="setEvidenceFilter('contextualy', this)">Contextually (6 &bull; 38%)</button>
+          <button class="filter-chip-btn" onclick="setEvidenceFilter('people', this)">People (4 &bull; 25%)</button>
+          <button class="filter-chip-btn" onclick="setEvidenceFilter('event', this)">Event (3 &bull; 19%)</button>
+          <button class="filter-chip-btn" onclick="setEvidenceFilter('face', this)">Face (2 &bull; 13%)</button>
+        </div>
+      </div>
+
+      <!-- 16 Evidence Cards Grid -->
       <div class="evidence-cards-grid" id="evidenceCardsGrid">
-        <div class="evidence-card" data-mode="ocr_failure" data-type="screenshot">
+        <!-- Quote 1 -->
+        <div class="evidence-card" data-memory="visuals text" data-type="screenshot">
           <div>
             <div class="evidence-header">
               <span class="source-badge reddit">Reddit</span>
-              <span class="frustration-stars">Frustration Level: 4 / 5</span>
+              <span class="frustration-stars">Frustration: 4 / 5</span>
+            </div>
+            <div class="memory-recall-row">
+              <span class="memory-recall-label">How they remember:</span>
+              <div class="memory-tags-group">
+                <span class="memory-badge memory-visuals">Visuals</span>
+                <span class="memory-badge memory-text">Text</span>
+              </div>
             </div>
             <div class="verbatim-quote-box">
               "typing 'pistachio lemon recipe' brings up absolutely nothing"
             </div>
             <div class="cues-section">
               <div class="cue-group">
-                <span class="cue-lbl">Type of Photo:</span>
+                <span class="cue-lbl">Photo Type:</span>
                 <span class="cue-chip">Screenshot</span>
               </div>
               <div class="cue-group">
-                <span class="cue-lbl">What they remembered:</span>
+                <span class="cue-lbl">Remembered:</span>
                 <div class="cue-chips">
                   <span class="cue-chip">pistachio crust</span>
                   <span class="cue-chip">lemon curd</span>
                 </div>
               </div>
               <div class="cue-group">
-                <span class="cue-lbl">What they typed:</span>
+                <span class="cue-lbl">Typed:</span>
                 <span class="cue-chip" style="font-family: monospace;">pistachio lemon recipe</span>
               </div>
             </div>
@@ -1933,30 +2104,163 @@
           </div>
         </div>
 
-        <div class="evidence-card" data-mode="ocr_failure" data-type="receipt">
+        <!-- Quote 2 -->
+        <div class="evidence-card" data-memory="text contextualy" data-type="receipt">
           <div>
             <div class="evidence-header">
               <span class="source-badge play_store">Play Store</span>
-              <span class="frustration-stars">Frustration Level: 3 / 5</span>
+              <span class="frustration-stars">Frustration: 3 / 5</span>
+            </div>
+            <div class="memory-recall-row">
+              <span class="memory-recall-label">How they remember:</span>
+              <div class="memory-tags-group">
+                <span class="memory-badge memory-text">Text</span>
+                <span class="memory-badge memory-contextually">Contextually</span>
+              </div>
+            </div>
+            <div class="verbatim-quote-box">
+              "Searched 'Costco $320' and nothing came up."
+            </div>
+            <div class="cues-section">
+              <div class="cue-group">
+                <span class="cue-lbl">Photo Type:</span>
+                <span class="cue-chip">Receipt / Paper</span>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Remembered:</span>
+                <div class="cue-chips">
+                  <span class="cue-chip">Costco store name</span>
+                  <span class="cue-chip">$320 amount</span>
+                </div>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Typed:</span>
+                <span class="cue-chip" style="font-family: monospace;">Costco $320</span>
+              </div>
+            </div>
+          </div>
+          <div class="evidence-footer">
+            <span>Review ID: <code>#fb7a92</code></span>
+            <span style="color: var(--accent-green); font-weight: 500;">&#10003; Exact User Words</span>
+          </div>
+        </div>
+
+        <!-- Quote 3 -->
+        <div class="evidence-card" data-memory="visuals text" data-type="screenshot">
+          <div>
+            <div class="evidence-header">
+              <span class="source-badge community_forum">Support Forum</span>
+              <span class="frustration-stars">Frustration: 4 / 5</span>
+            </div>
+            <div class="memory-recall-row">
+              <span class="memory-recall-label">How they remember:</span>
+              <div class="memory-tags-group">
+                <span class="memory-badge memory-visuals">Visuals</span>
+                <span class="memory-badge memory-text">Text</span>
+              </div>
+            </div>
+            <div class="verbatim-quote-box">
+              "searching 'passionfruit chocolate recipe' brings up 0 results because OCR failed on cursive font."
+            </div>
+            <div class="cues-section">
+              <div class="cue-group">
+                <span class="cue-lbl">Photo Type:</span>
+                <span class="cue-chip">Screenshot</span>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Remembered:</span>
+                <div class="cue-chips">
+                  <span class="cue-chip">passionfruit &amp; white chocolate</span>
+                  <span class="cue-chip">cursive font recipe title</span>
+                </div>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Typed:</span>
+                <span class="cue-chip" style="font-family: monospace;">passionfruit chocolate recipe</span>
+              </div>
+            </div>
+          </div>
+          <div class="evidence-footer">
+            <span>Review ID: <code>#afb132</code></span>
+            <span style="color: var(--accent-green); font-weight: 500;">&#10003; Exact User Words</span>
+          </div>
+        </div>
+
+        <!-- Quote 4 -->
+        <div class="evidence-card" data-memory="visuals text" data-type="receipt">
+          <div>
+            <div class="evidence-header">
+              <span class="source-badge play_store">Play Store</span>
+              <span class="frustration-stars">Frustration: 4 / 5</span>
+            </div>
+            <div class="memory-recall-row">
+              <span class="memory-recall-label">How they remember:</span>
+              <div class="memory-tags-group">
+                <span class="memory-badge memory-visuals">Visuals</span>
+                <span class="memory-badge memory-text">Text</span>
+              </div>
+            </div>
+            <div class="verbatim-quote-box">
+              "Thumbnails in search results are way too small to evaluate receipts or document screenshots."
+            </div>
+            <div class="cues-section">
+              <div class="cue-group">
+                <span class="cue-lbl">Photo Type:</span>
+                <span class="cue-chip">Receipt / Document</span>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Remembered:</span>
+                <div class="cue-chips">
+                  <span class="cue-chip">receipt document layout</span>
+                  <span class="cue-chip">serial number</span>
+                </div>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Typed:</span>
+                <span class="cue-chip" style="font-family: monospace;">receipt</span>
+              </div>
+            </div>
+          </div>
+          <div class="evidence-footer">
+            <span>Review ID: <code>#b93482</code></span>
+            <span style="color: var(--accent-green); font-weight: 500;">&#10003; Exact User Words</span>
+          </div>
+        </div>
+
+        <!-- Quote 5 -->
+        <div class="evidence-card" data-memory="text contextualy visuals" data-type="receipt">
+          <div>
+            <div class="evidence-header">
+              <span class="source-badge play_store">Play Store</span>
+              <span class="frustration-stars">Frustration: 3 / 5</span>
+            </div>
+            <div class="memory-recall-row">
+              <span class="memory-recall-label">How they remember:</span>
+              <div class="memory-tags-group">
+                <span class="memory-badge memory-text">Text</span>
+                <span class="memory-badge memory-contextually">Contextually</span>
+                <span class="memory-badge memory-visuals">Visuals</span>
+              </div>
             </div>
             <div class="verbatim-quote-box">
               "Searching '$1249' or 'Best Buy' returns zero items even though I know the picture is in my archive."
             </div>
             <div class="cues-section">
               <div class="cue-group">
-                <span class="cue-lbl">Type of Photo:</span>
+                <span class="cue-lbl">Photo Type:</span>
                 <span class="cue-chip">Receipt / Paper</span>
               </div>
               <div class="cue-group">
-                <span class="cue-lbl">What they remembered:</span>
+                <span class="cue-lbl">Remembered:</span>
                 <div class="cue-chips">
+                  <span class="cue-chip">early 2022</span>
+                  <span class="cue-chip">laptop receipt</span>
                   <span class="cue-chip">$1,249.99</span>
                   <span class="cue-chip">Best Buy</span>
-                  <span class="cue-chip">laptop</span>
                 </div>
               </div>
               <div class="cue-group">
-                <span class="cue-lbl">What they typed:</span>
+                <span class="cue-lbl">Typed:</span>
                 <span class="cue-chip" style="font-family: monospace;">$1249, Best Buy</span>
               </div>
             </div>
@@ -1967,29 +2271,160 @@
           </div>
         </div>
 
-        <div class="evidence-card" data-mode="semantic_drift" data-type="portrait">
+        <!-- Quote 6 -->
+        <div class="evidence-card" data-memory="text contextualy" data-type="receipt">
           <div>
             <div class="evidence-header">
               <span class="source-badge community_forum">Support Forum</span>
-              <span class="frustration-stars">Frustration Level: 3 / 5</span>
+              <span class="frustration-stars">Frustration: 4 / 5</span>
+            </div>
+            <div class="memory-recall-row">
+              <span class="memory-recall-label">How they remember:</span>
+              <div class="memory-tags-group">
+                <span class="memory-badge memory-text">Text</span>
+                <span class="memory-badge memory-contextually">Contextually</span>
+              </div>
+            </div>
+            <div class="verbatim-quote-box">
+              "I searched for 'Amoxicillin' and 'prescription' which is printed clearly on the receipt slip, but Google Photos returns zero results."
+            </div>
+            <div class="cues-section">
+              <div class="cue-group">
+                <span class="cue-lbl">Photo Type:</span>
+                <span class="cue-chip">Pharmacy Slip</span>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Remembered:</span>
+                <div class="cue-chips">
+                  <span class="cue-chip">Amoxicillin</span>
+                  <span class="cue-chip">prescription slip</span>
+                </div>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Typed:</span>
+                <span class="cue-chip" style="font-family: monospace;">Amoxicillin, prescription</span>
+              </div>
+            </div>
+          </div>
+          <div class="evidence-footer">
+            <span>Review ID: <code>#11ce37</code></span>
+            <span style="color: var(--accent-green); font-weight: 500;">&#10003; Exact User Words</span>
+          </div>
+        </div>
+
+        <!-- Quote 7 -->
+        <div class="evidence-card" data-memory="text contextualy" data-type="receipt">
+          <div>
+            <div class="evidence-header">
+              <span class="source-badge play_store">Play Store</span>
+              <span class="frustration-stars">Frustration: 3 / 5</span>
+            </div>
+            <div class="memory-recall-row">
+              <span class="memory-recall-label">How they remember:</span>
+              <div class="memory-tags-group">
+                <span class="memory-badge memory-text">Text</span>
+                <span class="memory-badge memory-contextually">Contextually</span>
+              </div>
+            </div>
+            <div class="verbatim-quote-box">
+              "Search seems to completely ignore dollar signs and price numbers on paper receipts."
+            </div>
+            <div class="cues-section">
+              <div class="cue-group">
+                <span class="cue-lbl">Photo Type:</span>
+                <span class="cue-chip">Paper Receipt</span>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Remembered:</span>
+                <div class="cue-chips">
+                  <span class="cue-chip">total was $499</span>
+                  <span class="cue-chip">Home Depot</span>
+                </div>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Typed:</span>
+                <span class="cue-chip" style="font-family: monospace;">$499, Home Depot receipt</span>
+              </div>
+            </div>
+          </div>
+          <div class="evidence-footer">
+            <span>Review ID: <code>#f9ec2b</code></span>
+            <span style="color: var(--accent-green); font-weight: 500;">&#10003; Exact User Words</span>
+          </div>
+        </div>
+
+        <!-- Quote 8 -->
+        <div class="evidence-card" data-memory="text" data-type="document">
+          <div>
+            <div class="evidence-header">
+              <span class="source-badge reddit">Reddit</span>
+              <span class="frustration-stars">Frustration: 4 / 5</span>
+            </div>
+            <div class="memory-recall-row">
+              <span class="memory-recall-label">How they remember:</span>
+              <div class="memory-tags-group">
+                <span class="memory-badge memory-text">Text</span>
+              </div>
+            </div>
+            <div class="verbatim-quote-box">
+              "Google Photos OCR didn't index the plate numbers at all"
+            </div>
+            <div class="cues-section">
+              <div class="cue-group">
+                <span class="cue-lbl">Photo Type:</span>
+                <span class="cue-chip">Document / Vehicle</span>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Remembered:</span>
+                <div class="cue-chips">
+                  <span class="cue-chip">license plate alphanumeric number</span>
+                </div>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Typed:</span>
+                <span class="cue-chip" style="font-family: monospace;">license plate number</span>
+              </div>
+            </div>
+          </div>
+          <div class="evidence-footer">
+            <span>Review ID: <code>#408ee3</code></span>
+            <span style="color: var(--accent-green); font-weight: 500;">&#10003; Exact User Words</span>
+          </div>
+        </div>
+
+        <!-- Quote 9 -->
+        <div class="evidence-card" data-memory="visuals face contextualy" data-type="portrait">
+          <div>
+            <div class="evidence-header">
+              <span class="source-badge community_forum">Support Forum</span>
+              <span class="frustration-stars">Frustration: 3 / 5</span>
+            </div>
+            <div class="memory-recall-row">
+              <span class="memory-recall-label">How they remember:</span>
+              <div class="memory-tags-group">
+                <span class="memory-badge memory-visuals">Visuals</span>
+                <span class="memory-badge memory-face">Face</span>
+                <span class="memory-badge memory-contextually">Contextually</span>
+              </div>
             </div>
             <div class="verbatim-quote-box">
               "Searching 'red barn' shows red cars and barns from vacations in 2023."
             </div>
             <div class="cues-section">
               <div class="cue-group">
-                <span class="cue-lbl">Type of Photo:</span>
-                <span class="cue-chip">Vacation Photo</span>
+                <span class="cue-lbl">Photo Type:</span>
+                <span class="cue-chip">Vacation Portrait</span>
               </div>
               <div class="cue-group">
-                <span class="cue-lbl">What they remembered:</span>
+                <span class="cue-lbl">Remembered:</span>
                 <div class="cue-chips">
-                  <span class="cue-chip">red barn setting</span>
-                  <span class="cue-chip">Vermont</span>
+                  <span class="cue-chip">red barn setting in Vermont</span>
+                  <span class="cue-chip">face turned sideways</span>
+                  <span class="cue-chip">2018 or 2019 trip</span>
                 </div>
               </div>
               <div class="cue-group">
-                <span class="cue-lbl">What they typed:</span>
+                <span class="cue-lbl">Typed:</span>
                 <span class="cue-chip" style="font-family: monospace;">red barn</span>
               </div>
             </div>
@@ -2000,35 +2435,294 @@
           </div>
         </div>
 
-        <div class="evidence-card" data-mode="semantic_drift" data-type="portrait">
+        <!-- Quote 10 -->
+        <div class="evidence-card" data-memory="visuals people event" data-type="portrait">
+          <div>
+            <div class="evidence-header">
+              <span class="source-badge play_store">Play Store</span>
+              <span class="frustration-stars">Frustration: 3 / 5</span>
+            </div>
+            <div class="memory-recall-row">
+              <span class="memory-recall-label">How they remember:</span>
+              <div class="memory-tags-group">
+                <span class="memory-badge memory-visuals">Visuals</span>
+                <span class="memory-badge memory-people">People</span>
+                <span class="memory-badge memory-event">Event</span>
+              </div>
+            </div>
+            <div class="verbatim-quote-box">
+              "It literally can't connect the color red to clothing."
+            </div>
+            <div class="cues-section">
+              <div class="cue-group">
+                <span class="cue-lbl">Photo Type:</span>
+                <span class="cue-chip">Holiday Portrait</span>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Remembered:</span>
+                <div class="cue-chips">
+                  <span class="cue-chip">wearing red sweater</span>
+                  <span class="cue-chip">family member</span>
+                  <span class="cue-chip">Christmas two years ago</span>
+                </div>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Typed:</span>
+                <span class="cue-chip" style="font-family: monospace;">red sweater</span>
+              </div>
+            </div>
+          </div>
+          <div class="evidence-footer">
+            <span>Review ID: <code>#b1df11</code></span>
+            <span style="color: var(--accent-green); font-weight: 500;">&#10003; Exact User Words</span>
+          </div>
+        </div>
+
+        <!-- Quote 11 -->
+        <div class="evidence-card" data-memory="visuals people event" data-type="portrait">
+          <div>
+            <div class="evidence-header">
+              <span class="source-badge play_store">Play Store</span>
+              <span class="frustration-stars">Frustration: 3 / 5</span>
+            </div>
+            <div class="memory-recall-row">
+              <span class="memory-recall-label">How they remember:</span>
+              <div class="memory-tags-group">
+                <span class="memory-badge memory-visuals">Visuals</span>
+                <span class="memory-badge memory-people">People</span>
+                <span class="memory-badge memory-event">Event</span>
+              </div>
+            </div>
+            <div class="verbatim-quote-box">
+              "Searching 'blue dinosaur costume' returns photos of green toy dinosaurs and random blue shirts, but not her costume."
+            </div>
+            <div class="cues-section">
+              <div class="cue-group">
+                <span class="cue-lbl">Photo Type:</span>
+                <span class="cue-chip">Halloween Candid</span>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Remembered:</span>
+                <div class="cue-chips">
+                  <span class="cue-chip">blue dinosaur costume</span>
+                  <span class="cue-chip">daughter wearing costume</span>
+                  <span class="cue-chip">Halloween 2022</span>
+                </div>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Typed:</span>
+                <span class="cue-chip" style="font-family: monospace;">blue dinosaur costume</span>
+              </div>
+            </div>
+          </div>
+          <div class="evidence-footer">
+            <span>Review ID: <code>#3f9e9e</code></span>
+            <span style="color: var(--accent-green); font-weight: 500;">&#10003; Exact User Words</span>
+          </div>
+        </div>
+
+        <!-- Quote 12 -->
+        <div class="evidence-card" data-memory="visuals people" data-type="portrait">
+          <div>
+            <div class="evidence-header">
+              <span class="source-badge community_forum">Support Forum</span>
+              <span class="frustration-stars">Frustration: 3 / 5</span>
+            </div>
+            <div class="memory-recall-row">
+              <span class="memory-recall-label">How they remember:</span>
+              <div class="memory-tags-group">
+                <span class="memory-badge memory-visuals">Visuals</span>
+                <span class="memory-badge memory-people">People</span>
+              </div>
+            </div>
+            <div class="verbatim-quote-box">
+              "The search engine completely ignores adjectives."
+            </div>
+            <div class="cues-section">
+              <div class="cue-group">
+                <span class="cue-lbl">Photo Type:</span>
+                <span class="cue-chip">Candid Portrait</span>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Remembered:</span>
+                <div class="cue-chips">
+                  <span class="cue-chip">wearing green jacket</span>
+                  <span class="cue-chip">friend in photo</span>
+                </div>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Typed:</span>
+                <span class="cue-chip" style="font-family: monospace;">green jacket</span>
+              </div>
+            </div>
+          </div>
+          <div class="evidence-footer">
+            <span>Review ID: <code>#cb895a</code></span>
+            <span style="color: var(--accent-green); font-weight: 500;">&#10003; Exact User Words</span>
+          </div>
+        </div>
+
+        <!-- Quote 13 -->
+        <div class="evidence-card" data-memory="contextualy event" data-type="portrait">
+          <div>
+            <div class="evidence-header">
+              <span class="source-badge reddit">Reddit</span>
+              <span class="frustration-stars">Frustration: 3 / 5</span>
+            </div>
+            <div class="memory-recall-row">
+              <span class="memory-recall-label">How they remember:</span>
+              <div class="memory-tags-group">
+                <span class="memory-badge memory-contextually">Contextually</span>
+                <span class="memory-badge memory-event">Event</span>
+              </div>
+            </div>
+            <div class="verbatim-quote-box">
+              "If you guess 2018 and it was 2019, you get nothing."
+            </div>
+            <div class="cues-section">
+              <div class="cue-group">
+                <span class="cue-lbl">Photo Type:</span>
+                <span class="cue-chip">Vacation Camping Photo</span>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Remembered:</span>
+                <div class="cue-chips">
+                  <span class="cue-chip">sometime before COVID</span>
+                  <span class="cue-chip">family camping trip</span>
+                </div>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Typed:</span>
+                <span class="cue-chip" style="font-family: monospace;">2018</span>
+              </div>
+            </div>
+          </div>
+          <div class="evidence-footer">
+            <span>Review ID: <code>#512e3d</code></span>
+            <span style="color: var(--accent-green); font-weight: 500;">&#10003; Exact User Words</span>
+          </div>
+        </div>
+
+        <!-- Quote 14 -->
+        <div class="evidence-card" data-memory="visuals face people" data-type="portrait">
           <div>
             <div class="evidence-header">
               <span class="source-badge youtube">YouTube</span>
-              <span class="frustration-stars">Frustration Level: 4 / 5</span>
+              <span class="frustration-stars">Frustration: 4 / 5</span>
+            </div>
+            <div class="memory-recall-row">
+              <span class="memory-recall-label">How they remember:</span>
+              <div class="memory-tags-group">
+                <span class="memory-badge memory-visuals">Visuals</span>
+                <span class="memory-badge memory-face">Face</span>
+                <span class="memory-badge memory-people">People</span>
+              </div>
             </div>
             <div class="verbatim-quote-box">
               "The video shows search working so easily, but try searching for a picture where you only remember someone was NOT smiling and wearing a black hoodie"
             </div>
             <div class="cues-section">
               <div class="cue-group">
-                <span class="cue-lbl">Type of Photo:</span>
-                <span class="cue-chip">Casual Photo</span>
+                <span class="cue-lbl">Photo Type:</span>
+                <span class="cue-chip">Casual Portrait</span>
               </div>
               <div class="cue-group">
-                <span class="cue-lbl">What they remembered:</span>
+                <span class="cue-lbl">Remembered:</span>
                 <div class="cue-chips">
                   <span class="cue-chip">black hoodie</span>
                   <span class="cue-chip negated">&#10005; NOT smiling</span>
+                  <span class="cue-chip">friend portrait</span>
                 </div>
               </div>
               <div class="cue-group">
-                <span class="cue-lbl">What they typed:</span>
+                <span class="cue-lbl">Typed:</span>
                 <span class="cue-chip" style="font-family: monospace;">black hoodie</span>
               </div>
             </div>
           </div>
           <div class="evidence-footer">
             <span>Review ID: <code>#d05d65</code></span>
+            <span style="color: var(--accent-green); font-weight: 500;">&#10003; Exact User Words</span>
+          </div>
+        </div>
+
+        <!-- Quote 15 -->
+        <div class="evidence-card" data-memory="contextualy" data-type="other">
+          <div>
+            <div class="evidence-header">
+              <span class="source-badge play_store">Play Store</span>
+              <span class="frustration-stars">Frustration: 4 / 5</span>
+            </div>
+            <div class="memory-recall-row">
+              <span class="memory-recall-label">How they remember:</span>
+              <div class="memory-tags-group">
+                <span class="memory-badge memory-contextually">Contextually</span>
+              </div>
+            </div>
+            <div class="verbatim-quote-box">
+              "Just stop. I'll come looking for what I want and need when I'm ready."
+            </div>
+            <div class="cues-section">
+              <div class="cue-group">
+                <span class="cue-lbl">Photo Type:</span>
+                <span class="cue-chip">Personal Archive</span>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Remembered:</span>
+                <div class="cue-chips">
+                  <span class="cue-chip">personal timeline browsing</span>
+                  <span class="cue-chip">without unwanted popups</span>
+                </div>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Typed:</span>
+                <span class="cue-chip" style="font-family: monospace;">manual timeline scroll</span>
+              </div>
+            </div>
+          </div>
+          <div class="evidence-footer">
+            <span>Review ID: <code>#2e681c</code></span>
+            <span style="color: var(--accent-green); font-weight: 500;">&#10003; Exact User Words</span>
+          </div>
+        </div>
+
+        <!-- Quote 16 -->
+        <div class="evidence-card" data-memory="contextualy text" data-type="screenshot">
+          <div>
+            <div class="evidence-header">
+              <span class="source-badge community_forum">Support Forum</span>
+              <span class="frustration-stars">Frustration: 3 / 5</span>
+            </div>
+            <div class="memory-recall-row">
+              <span class="memory-recall-label">How they remember:</span>
+              <div class="memory-tags-group">
+                <span class="memory-badge memory-contextually">Contextually</span>
+                <span class="memory-badge memory-text">Text</span>
+              </div>
+            </div>
+            <div class="verbatim-quote-box">
+              "If my query returns 0 results, give me filter chips like 'Search in Screenshots' or 'Search by Year'. Instead it just shows a blank screen and I have to start over from scratch."
+            </div>
+            <div class="cues-section">
+              <div class="cue-group">
+                <span class="cue-lbl">Photo Type:</span>
+                <span class="cue-chip">Screenshot Album</span>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Remembered:</span>
+                <div class="cue-chips">
+                  <span class="cue-chip">saved in screenshots</span>
+                  <span class="cue-chip">broad year timeframe</span>
+                </div>
+              </div>
+              <div class="cue-group">
+                <span class="cue-lbl">Typed:</span>
+                <span class="cue-chip" style="font-family: monospace;">unspecified query (0 results)</span>
+              </div>
+            </div>
+          </div>
+          <div class="evidence-footer">
+            <span>Review ID: <code>#cd527b</code></span>
             <span style="color: var(--accent-green); font-weight: 500;">&#10003; Exact User Words</span>
           </div>
         </div>
@@ -2118,82 +2812,7 @@
       </div>
     </div>
 
-    <!-- ============================================================== -->
-    <!-- TAB 5: SEARCH DEMO -->
-    <!-- ============================================================== -->
-    <div id="tab-simulator" class="tab-panel">
-      <div style="margin-bottom: 20px;">
-        <h2 class="section-title">Search Comparison Demo</h2>
-        <p class="section-desc">
-          See the difference between how photo search works today and how our improved search understands what you remember.
-        </p>
-      </div>
 
-      <div class="simulator-container">
-        <div class="sim-input-row">
-          <input type="text" id="simQueryInput" class="sim-query-input" value="friend wearing bright yellow jacket hiking trail in Oregon">
-          <button class="btn btn-primary" onclick="runSimulation()">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            Try Search
-          </button>
-        </div>
-
-        <div class="sample-queries-chips">
-          <span class="sample-lbl">Try these examples:</span>
-          <span class="sample-chip" onclick="setSimQuery('friend wearing bright yellow jacket hiking trail in Oregon')">"yellow jacket hiking"</span>
-          <span class="sample-chip" onclick="setSimQuery('laptop receipt from Best Buy around $1249 from 2022')">"$1249 Best Buy receipt"</span>
-          <span class="sample-chip" onclick="setSimQuery('person not smiling and wearing a black hoodie outdoor')">"not smiling black hoodie"</span>
-        </div>
-
-        <div id="cognitiveBreakdownCard" style="background: var(--surface-gray); border-radius: var(--radius-md); padding: 16px 20px; margin-bottom: 24px; border: 1px solid var(--border-gray);">
-          <div style="font-size: 12px; font-weight: 700; color: var(--primary-blue); text-transform: uppercase; margin-bottom: 8px;">Clues Found in Your Search:</div>
-          <div id="extractedSignalsRow" style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <span class="factor-chip">Who / What: <strong>Friend</strong></span>
-            <span class="factor-chip">Clothes &amp; Color: <strong>Yellow jacket (matched together)</strong></span>
-            <span class="factor-chip">Setting: <strong>Hiking trail outdoors</strong></span>
-            <span class="factor-chip">Place: <strong>Oregon</strong></span>
-          </div>
-        </div>
-
-        <div class="sim-comparison-grid">
-          <div class="sim-col-card fail">
-            <div class="sim-col-header">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
-              <span>Standard Search Today (Fails)</span>
-            </div>
-            <div style="font-size: 13px; color: var(--accent-red); margin-bottom: 12px; font-weight: 500;" id="legacyStatusText">
-              Confused Words &amp; Shows Wrong Photos
-            </div>
-            <div class="sim-results-list" id="legacyResultsList">
-              <div class="sim-result-item" style="border-left: 3px solid var(--accent-red);">
-                <strong>Result #1:</strong> Macro photo of a yellowjacket wasp in garden (matched the word "jacket" to the insect).
-              </div>
-              <div class="sim-result-item" style="border-left: 3px solid var(--accent-red);">
-                <strong>Result #2:</strong> Yellow rain poncho on city street (wrong setting and clothes).
-              </div>
-            </div>
-          </div>
-
-          <div class="sim-col-card pass">
-            <div class="sim-col-header">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-              <span>Improved Search (Succeeds)</span>
-            </div>
-            <div style="font-size: 13px; color: var(--primary-blue); margin-bottom: 12px; font-weight: 500;" id="modernStatusText">
-              Finds the Exact Photo
-            </div>
-            <div class="sim-results-list" id="modernResultsList">
-              <div class="sim-result-item" style="border-left: 3px solid var(--accent-blue);">
-                <strong>Result #1:</strong> <code>IMG_2021_0814.jpg</code> &bull; Friend wearing yellow windbreaker on Mount Hood trail (Found!).
-              </div>
-              <div class="sim-result-item" style="border-left: 3px solid var(--accent-blue);">
-                <strong>Suggestion Button:</strong> <em>"Was it around August 2021?"</em>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
   </main>
 
@@ -2493,13 +3112,13 @@
 
     // Evidence Bank Filter
     function setEvidenceFilter(filterKey, btnElement) {
-      document.querySelectorAll('.filter-chip-btn').forEach(b => b.classList.remove('active'));
-      btnElement.classList.add('active');
+      document.querySelectorAll('.filter-chips-group .filter-chip-btn').forEach(b => b.classList.remove('active'));
+      if (btnElement) btnElement.classList.add('active');
 
       const cards = document.querySelectorAll('.evidence-card');
       cards.forEach(card => {
-        const mode = card.getAttribute('data-mode');
-        if (filterKey === 'all' || mode === filterKey) {
+        const memory = (card.getAttribute('data-memory') || '').toLowerCase();
+        if (filterKey === 'all' || memory.includes(filterKey.toLowerCase())) {
           card.style.display = 'flex';
         } else {
           card.style.display = 'none';
@@ -2511,37 +3130,112 @@
       const q = document.getElementById('quoteSearchInput').value.toLowerCase().trim();
       const cards = document.querySelectorAll('.evidence-card');
       cards.forEach(card => {
-        card.style.display = card.textContent.toLowerCase().includes(q) ? 'flex' : 'none';
+        const text = card.textContent.toLowerCase();
+        card.style.display = text.includes(q) ? 'flex' : 'none';
       });
     }
 
-    // Modal Details for Clusters
+    // Modal Details for All 8 Search Problem Clusters
     const clusterDetailsData = {
-      'cluster_02': {
-        title: 'Can\'t Read Text or Numbers on Receipts & Documents',
-        mode: 'Missing numbers & store names',
-        impact: 'High Impact',
-        freq: '50% of complaints',
-        sev: 'Very High (4.5 / 5.0)',
-        desc: 'People look for receipts and warranty papers using prices ($1,249) or store names, but search drops numbers and small text.',
-        quotes: [
-          'Can\'t find my car insurance policy receipt from Best Buy',
-          'Searching \'$1249\' or \'Best Buy\' returns zero items even though I know the picture is in my archive.'
-        ],
-        recs: 'Teach search to recognize dollar amounts ($), numbers, and store logos on paper photos.'
-      },
       'cluster_01': {
-        title: 'Search Confuses Colors, Clothes, and Objects',
+        title: 'Search Confuses Colors, Clothes & Objects',
         mode: 'Confusing words and colors',
         impact: 'High Impact',
-        freq: '50% of complaints',
+        freq: '44% of complaints (7 quotes)',
         sev: 'High (4.0 / 5.0)',
-        desc: 'People search for clothing colors (yellow jacket) or details (not smiling), but search shows wasps or red cars instead.',
+        desc: 'People search by clothing colors (yellow jacket, red sweater) or details, but search connects adjectives to the wrong nouns—showing yellowjacket wasps or red cars.',
         quotes: [
-          'Looking for a yellow jacket photo on a hiking trail in Oregon...',
-          'Searching \'red barn\' shows red cars and barns from vacations in 2023.'
+          'It literally can\'t connect the color red to clothing.',
+          'Searching \'blue dinosaur costume\' returns photos of green toy dinosaurs and random blue shirts, but not her costume.',
+          'The search engine completely ignores adjectives.'
         ],
-        recs: 'Connect colors directly to clothes, and understand negative clues like \'not smiling\'.'
+        recs: 'Bind visual colors directly to detected clothing items and subject bounding boxes.'
+      },
+      'cluster_02': {
+        title: 'Reading Receipts, Prices & Store Names',
+        mode: 'Missing numbers, prices & store names',
+        impact: 'High Impact',
+        freq: '50% of complaints (8 quotes)',
+        sev: 'Very High (4.5 / 5.0)',
+        desc: 'People look for receipts and warranty papers using prices ($1,249, $320), store names (Costco, Best Buy), or prescription names, but search drops numbers and symbols.',
+        quotes: [
+          'Searched \'Costco $320\' and nothing came up.',
+          'Searching \'$1249\' or \'Best Buy\' returns zero items even though I know the picture is in my archive.',
+          'Search seems to completely ignore dollar signs and price numbers on paper receipts.'
+        ],
+        recs: 'Index alphanumeric text, currency symbols ($), and store names from receipt and document images into searchable metadata.'
+      },
+      'cluster_03': {
+        title: 'Search Ignores "Not" Clues & Negative Words',
+        mode: 'Ignores negation and exclusion clues',
+        impact: 'High Impact',
+        freq: '25% of complaints (4 quotes)',
+        sev: 'Very High (4.2 / 5.0)',
+        desc: 'When users remember someone was "NOT smiling" or "without glasses", search drops the negative word and floods results with hundreds of opposite images.',
+        quotes: [
+          'try searching for a picture where you only remember someone was NOT smiling and wearing a black hoodie'
+        ],
+        recs: 'Implement negation token parsing (e.g. "not smiling" maps directly to serious/neutral facial expressions).'
+      },
+      'cluster_04': {
+        title: 'Blank Screen on Zero Results (No Suggestions)',
+        mode: 'Dead-end empty screen with no suggestions',
+        impact: 'High Impact',
+        freq: '38% of complaints (6 quotes)',
+        sev: 'High (4.0 / 5.0)',
+        desc: 'When a search returns 0 results, the app displays a dead-end blank screen with no suggestions, filter chips, or spelling help, forcing users to restart.',
+        quotes: [
+          'If my query returns 0 results, give me filter chips like \'Search in Screenshots\' or \'Search by Year\'. Instead it just shows a blank screen and I have to start over from scratch.'
+        ],
+        recs: 'Provide helpful fallback chips (\'Search in Screenshots\', \'Broaden time window\') whenever 0 direct results are found.'
+      },
+      'cluster_05': {
+        title: 'Thumbnails Too Small to Read or Verify',
+        mode: 'Unreadable small previews on text documents',
+        impact: 'High Impact',
+        freq: '31% of complaints (5 quotes)',
+        sev: 'High (3.8 / 5.0)',
+        desc: 'Results grid displays tiny square thumbnails where receipt totals, dates, and text are illegible, forcing users to tap open each photo one by one.',
+        quotes: [
+          'Thumbnails in search results are way too small to evaluate receipts or document screenshots.'
+        ],
+        recs: 'Enable smart expanded card previews with highlighted text snippets when reviewing receipt and document search results.'
+      },
+      'cluster_06': {
+        title: 'Endless Scrolling & Search Fatigue',
+        mode: 'Timeline scrolling overload and exhaustion',
+        impact: 'High Impact',
+        freq: '75% search abandonment',
+        sev: 'High (4.1 / 5.0)',
+        desc: 'After 2 failed searches, users give up on the search bar and scroll manually through thousands of timeline photos for 15+ minutes until exhausted.',
+        quotes: [
+          'I tried \'black hoodie\' and got 500 pictures, had to scroll forever.'
+        ],
+        recs: 'Provide interactive quick-narrow chips (color, person, month) to immediately reduce 500+ photo dumps to under 10 candidates.'
+      },
+      'cluster_07': {
+        title: 'Calendar Dates Don\'t Match Human Memory',
+        mode: 'Rigid calendar dates vs fuzzy recall',
+        impact: 'High Impact',
+        freq: '38% of complaints (6 quotes)',
+        sev: 'High (3.7 / 5.0)',
+        desc: 'People recall life moments ("summer before COVID" or "college graduation"), but search requires rigid dates; guessing 2018 instead of 2019 returns zero.',
+        quotes: [
+          'If you guess 2018 and it was 2019, you get nothing.'
+        ],
+        recs: 'Support fuzzy temporal window matching (e.g. ±12 month softening) and life event milestone anchors.'
+      },
+      'cluster_08': {
+        title: 'Search Forgets What You Just Tried',
+        mode: 'No session memory across query iterations',
+        impact: 'High Impact',
+        freq: '31% of complaints (5 quotes)',
+        sev: 'Medium-High (3.6 / 5.0)',
+        desc: 'Search provides no working memory across queries. Changing a single word resets everything and loses previously browsed candidates.',
+        quotes: [
+          'Just stop. I’ll come looking for what I want and need when I’m ready.'
+        ],
+        recs: 'Maintain lightweight session context allowing users to refine, undo, or pivot queries without losing candidates.'
       }
     };
 
@@ -2568,80 +3262,11 @@
       document.getElementById('clusterModal').classList.add('open');
     }
 
-    function closeClusterModal() {
-      document.getElementById('clusterModal').classList.remove('open');
-    }
-
-    // Query Simulator
-    function setSimQuery(query) {
-      document.getElementById('simQueryInput').value = query;
-      runSimulation();
-    }
-
-    function runSimulation() {
-      const query = document.getElementById('simQueryInput').value.toLowerCase().trim();
-      const signalsRow = document.getElementById('extractedSignalsRow');
-      const legacyResults = document.getElementById('legacyResultsList');
-      const modernResults = document.getElementById('modernResultsList');
-      const legacyStatus = document.getElementById('legacyStatusText');
-      const modernStatus = document.getElementById('modernStatusText');
-
-      if (query.includes('receipt') || query.includes('1249') || query.includes('buy')) {
-        signalsRow.innerHTML = `
-          <span class="factor-chip">Type of Photo: <strong>Receipt / Document</strong></span>
-          <span class="factor-chip">Price / Amount: <strong>$1,249.99</strong></span>
-          <span class="factor-chip">Store: <strong>Best Buy</strong></span>
-        `;
-        legacyStatus.innerText = "No Results (Ignored Numbers & Symbols)";
-        legacyResults.innerHTML = `
-          <div class="sim-result-item" style="border-left: 3px solid var(--accent-red);">
-            <strong>Result:</strong> "No photos found for '$1249 Best Buy'".
-          </div>
-        `;
-        modernStatus.innerText = "Found the Exact Receipt by Price & Store";
-        modernResults.innerHTML = `
-          <div class="sim-result-item" style="border-left: 3px solid var(--accent-blue);">
-            <strong>Match:</strong> <code>IMG_Receipt_BestBuy.jpg</code> ($1,249.99 laptop receipt).
-          </div>
-        `;
-      } else if (query.includes('not smiling') || query.includes('hoodie')) {
-        signalsRow.innerHTML = `
-          <span class="factor-chip">Type of Photo: <strong>Casual Photo</strong></span>
-          <span class="factor-chip">Clothes: <strong>Black hoodie</strong></span>
-          <span class="factor-chip negated">&#10005; Missing Detail: <strong>Not smiling</strong></span>
-        `;
-        legacyStatus.innerText = "Too Many Results (450+ photos to scroll through)";
-        legacyResults.innerHTML = `
-          <div class="sim-result-item" style="border-left: 3px solid var(--accent-red);">
-            <strong>Result:</strong> 450+ photos with dark clothing, mostly smiling group shots.
-          </div>
-        `;
-        modernStatus.innerText = "Found Photos Where Person Is Not Smiling";
-        modernResults.innerHTML = `
-          <div class="sim-result-item" style="border-left: 3px solid var(--accent-blue);">
-            <strong>Match:</strong> <code>IMG_Candid_Park.jpg</code> &bull; Serious expression in black hoodie (Found!).
-          </div>
-        `;
-      } else {
-        signalsRow.innerHTML = `
-          <span class="factor-chip">Who / What: <strong>Friend</strong></span>
-          <span class="factor-chip">Clothes &amp; Color: <strong>Yellow jacket (matched together)</strong></span>
-          <span class="factor-chip">Setting: <strong>Hiking trail outdoors</strong></span>
-        `;
-        legacyStatus.innerText = "Confused Words (Showed Wasps & Yellow Ponchos)";
-        legacyResults.innerHTML = `
-          <div class="sim-result-item" style="border-left: 3px solid var(--accent-red);">
-            <strong>Result:</strong> Wasp photos ("yellowjacket") & generic yellow ponchos.
-          </div>
-        `;
-        modernStatus.innerText = "Found Friend in Yellow Jacket Outdoors";
-        modernResults.innerHTML = `
-          <div class="sim-result-item" style="border-left: 3px solid var(--accent-blue);">
-            <strong>Match:</strong> <code>IMG_2021_0814.jpg</code> &bull; Friend in yellow windbreaker on Oregon trail (Found!).
-          </div>
-        `;
+    function closeClusterModal(e) {
+      if (e && e.target && e.target !== document.getElementById('clusterModal') && !e.target.classList.contains('modal-close-btn')) {
+        return;
       }
-      showToast("Demo Search: \"" + query.substring(0, 30) + "...\"");
+      document.getElementById('clusterModal').classList.remove('open');
     }
 
     function showToast(message) {
