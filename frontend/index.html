@@ -884,30 +884,61 @@
       background: var(--bg-white);
       border: 1px solid var(--border-gray);
       border-radius: var(--radius-xl);
-      padding: 24px;
+      padding: 20px 24px;
       margin-top: 24px;
       box-shadow: var(--shadow-card);
+      transition: all 0.2s ease;
+    }
+    .review-breakdown-container:hover {
+      border-color: var(--border-gray-hover);
     }
     .review-breakdown-header {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 20px;
+      align-items: center;
       gap: 16px;
       flex-wrap: wrap;
+      cursor: pointer;
+      user-select: none;
+      transition: opacity 0.15s ease;
+    }
+    .review-breakdown-header:hover {
+      opacity: 0.95;
     }
     .breakdown-header-left {
       flex: 1;
       min-width: 280px;
     }
+    .breakdown-title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
     .breakdown-title {
       font-size: 18px;
       font-weight: 700;
       color: var(--text-primary);
-      margin-bottom: 6px;
       display: flex;
       align-items: center;
       gap: 8px;
+    }
+    .breakdown-toggle-pill {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--primary-blue);
+      background: var(--tint-blue);
+      border: 1px solid #C2E7FF;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+    }
+    .breakdown-chevron {
+      transition: transform 0.25s ease;
     }
     .breakdown-subtitle {
       font-size: 13.5px;
@@ -919,9 +950,10 @@
       background: var(--tint-blue);
       border: 1px solid #C2E7FF;
       border-radius: var(--radius-lg);
-      padding: 14px 20px;
+      padding: 12px 18px;
       text-align: right;
-      min-width: 260px;
+      min-width: 250px;
+      transition: all 0.15s ease;
     }
     .stat-badge-top {
       display: flex;
@@ -950,6 +982,20 @@
       font-size: 11.5px;
       color: var(--text-secondary);
       margin-top: 3px;
+    }
+    .breakdown-collapsible-body {
+      display: none;
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-gray);
+      animation: fadeIn 0.25s ease;
+    }
+    .breakdown-collapsible-body.open {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .breakdown-takeaway-bar {
       margin-top: 16px;
@@ -1741,19 +1787,25 @@
           </div>
         </div>
 
-        <!-- Breakdown of 647 Reviews & Search-Specific Count -->
-        <div class="review-breakdown-container">
-          <div class="review-breakdown-header">
+        <!-- Breakdown of 647 Reviews & Search-Specific Count (Expandable Section) -->
+        <div class="review-breakdown-container" id="reviewBreakdownContainer">
+          <div class="review-breakdown-header" onclick="toggleReviewBreakdown()" title="Click to view or hide full review breakdown">
             <div class="breakdown-header-left">
-              <div class="breakdown-title">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary-blue)" stroke-width="2.2">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                  <polyline points="14 2 14 8 20 8"></polyline>
-                  <line x1="16" y1="13" x2="8" y2="13"></line>
-                  <line x1="16" y1="17" x2="8" y2="17"></line>
-                  <polyline points="10 9 9 9 8 9"></polyline>
-                </svg>
-                What Were All 647 Useful Reviews Actually About?
+              <div class="breakdown-title-row">
+                <div class="breakdown-title">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary-blue)" stroke-width="2.2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                  </svg>
+                  What Were All 647 Useful Reviews Actually About?
+                </div>
+                <span class="breakdown-toggle-pill" id="breakdownTogglePill">
+                  <span id="breakdownToggleText">Click to Expand</span>
+                  <svg id="breakdownChevronIcon" class="breakdown-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </span>
               </div>
               <p class="breakdown-subtitle">
                 Over 95% of public complaints were about storage, backup, or billing. Only <strong>33 reviews</strong> were specifically about Google Photos search.
@@ -1771,108 +1823,111 @@
             </div>
           </div>
 
-          <!-- Table of Breakdown -->
-          <div class="table-container" style="margin-bottom: 0; box-shadow: none; border-radius: var(--radius-lg);">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th style="width: 28%;">What the Review Was About</th>
-                  <th style="width: 14%;">Count &amp; Share</th>
-                  <th style="width: 38%;">Real Customer Examples</th>
-                  <th style="width: 20%;">Search Engine Relevance</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <strong>Cloud Storage &amp; Google One</strong>
-                    <div style="font-size: 11.5px; color: var(--text-secondary);">15 GB quota limits, subscription prompts</div>
-                  </td>
-                  <td>
-                    <span style="font-weight: 700; font-size: 14px;">~320</span>
-                    <span style="font-size: 12px; color: var(--text-tertiary);">(49.5%)</span>
-                  </td>
-                  <td>
-                    <span style="font-style: italic; color: var(--text-secondary);">"Ran out of 15GB storage, stop asking me to pay"</span>
-                  </td>
-                  <td><span class="pill-tag" style="background: var(--surface-gray); color: var(--text-secondary);">Not Search (Billing)</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>Backup &amp; Sync Errors</strong>
-                    <div style="font-size: 11.5px; color: var(--text-secondary);">Camera roll sync, device migration, permissions</div>
-                  </td>
-                  <td>
-                    <span style="font-weight: 700; font-size: 14px;">~180</span>
-                    <span style="font-size: 12px; color: var(--text-tertiary);">(27.8%)</span>
-                  </td>
-                  <td>
-                    <span style="font-style: italic; color: var(--text-secondary);">"My backup stopped working", "Photos didn't transfer to my new phone"</span>
-                  </td>
-                  <td><span class="pill-tag" style="background: var(--surface-gray); color: var(--text-secondary);">Not Search (Sync)</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>Accidental Deletions</strong>
-                    <div style="font-size: 11.5px; color: var(--text-secondary);">Trash bin, permanently deleted family photos</div>
-                  </td>
-                  <td>
-                    <span style="font-weight: 700; font-size: 14px;">~75</span>
-                    <span style="font-size: 12px; color: var(--text-tertiary);">(11.6%)</span>
-                  </td>
-                  <td>
-                    <span style="font-style: italic; color: var(--text-secondary);">"Deleted a photo by mistake, how do I recover it?"</span>
-                  </td>
-                  <td><span class="pill-tag" style="background: var(--surface-gray); color: var(--text-secondary);">Not Search (Recovery)</span></td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>General Praise &amp; Short Comments</strong>
-                    <div style="font-size: 11.5px; color: var(--text-secondary);">Friendly ratings, greetings, non-technical feedback</div>
-                  </td>
-                  <td>
-                    <span style="font-weight: 700; font-size: 14px;">~39</span>
-                    <span style="font-size: 12px; color: var(--text-tertiary);">(6.0%)</span>
-                  </td>
-                  <td>
-                    <span style="font-style: italic; color: var(--text-secondary);">"Nice app", "Love this service", "Radhe Radhe"</span>
-                  </td>
-                  <td><span class="pill-tag" style="background: var(--surface-gray); color: var(--text-secondary);">Not Search (General)</span></td>
-                </tr>
-                <tr style="background: #FDF9EC;">
-                  <td>
-                    <strong style="color: #B06000;">Vague Search Complaints</strong>
-                    <div style="font-size: 11.5px; color: var(--text-secondary);">General dissatisfaction, missing memory details</div>
-                  </td>
-                  <td>
-                    <span style="font-weight: 700; font-size: 14px; color: #B06000;">17</span>
-                    <span style="font-size: 12px; color: var(--text-tertiary);">(2.6%)</span>
-                  </td>
-                  <td>
-                    <span style="font-style: italic; color: var(--text-secondary);">"Search got worse after the update", "Hard to find pictures" (did not give details)</span>
-                  </td>
-                  <td><span class="pill-tag" style="background: var(--tint-yellow); color: #B06000; border-color: #FFE7A5; font-weight: 600;">Search (Vague)</span></td>
-                </tr>
-                <tr style="background: #F3F8FE;">
-                  <td>
-                    <strong style="color: var(--primary-blue);">Detailed Search Failures (Our 16 Quotes)</strong>
-                    <div style="font-size: 11.5px; color: var(--text-secondary);">Full context: remembered cues vs what was typed</div>
-                  </td>
-                  <td>
-                    <span style="font-weight: 700; font-size: 14px; color: var(--primary-blue);">16</span>
-                    <span style="font-size: 12px; color: var(--text-tertiary);">(2.5%)</span>
-                  </td>
-                  <td>
-                    <span style="font-style: italic; color: var(--text-primary); font-weight: 500;">Gave the exact story: what they remembered, what they typed, and why search failed</span>
-                  </td>
-                  <td><span class="pill-tag" style="background: var(--tint-blue); color: var(--primary-blue); border-color: #C2E7FF; font-weight: 700;">Verified Evidence</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <!-- Collapsible Body (Hidden by default) -->
+          <div class="breakdown-collapsible-body" id="reviewBreakdownBody" style="display: none;">
+            <!-- Table of Breakdown -->
+            <div class="table-container" style="margin-bottom: 0; box-shadow: none; border-radius: var(--radius-lg);">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th style="width: 28%;">What the Review Was About</th>
+                    <th style="width: 14%;">Count &amp; Share</th>
+                    <th style="width: 38%;">Real Customer Examples</th>
+                    <th style="width: 20%;">Search Engine Relevance</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <strong>Cloud Storage &amp; Google One</strong>
+                      <div style="font-size: 11.5px; color: var(--text-secondary);">15 GB quota limits, subscription prompts</div>
+                    </td>
+                    <td>
+                      <span style="font-weight: 700; font-size: 14px;">~320</span>
+                      <span style="font-size: 12px; color: var(--text-tertiary);">(49.5%)</span>
+                    </td>
+                    <td>
+                      <span style="font-style: italic; color: var(--text-secondary);">"Ran out of 15GB storage, stop asking me to pay"</span>
+                    </td>
+                    <td><span class="pill-tag" style="background: var(--surface-gray); color: var(--text-secondary);">Not Search (Billing)</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Backup &amp; Sync Errors</strong>
+                      <div style="font-size: 11.5px; color: var(--text-secondary);">Camera roll sync, device migration, permissions</div>
+                    </td>
+                    <td>
+                      <span style="font-weight: 700; font-size: 14px;">~180</span>
+                      <span style="font-size: 12px; color: var(--text-tertiary);">(27.8%)</span>
+                    </td>
+                    <td>
+                      <span style="font-style: italic; color: var(--text-secondary);">"My backup stopped working", "Photos didn't transfer to my new phone"</span>
+                    </td>
+                    <td><span class="pill-tag" style="background: var(--surface-gray); color: var(--text-secondary);">Not Search (Sync)</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>Accidental Deletions</strong>
+                      <div style="font-size: 11.5px; color: var(--text-secondary);">Trash bin, permanently deleted family photos</div>
+                    </td>
+                    <td>
+                      <span style="font-weight: 700; font-size: 14px;">~75</span>
+                      <span style="font-size: 12px; color: var(--text-tertiary);">(11.6%)</span>
+                    </td>
+                    <td>
+                      <span style="font-style: italic; color: var(--text-secondary);">"Deleted a photo by mistake, how do I recover it?"</span>
+                    </td>
+                    <td><span class="pill-tag" style="background: var(--surface-gray); color: var(--text-secondary);">Not Search (Recovery)</span></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>General Praise &amp; Short Comments</strong>
+                      <div style="font-size: 11.5px; color: var(--text-secondary);">Friendly ratings, greetings, non-technical feedback</div>
+                    </td>
+                    <td>
+                      <span style="font-weight: 700; font-size: 14px;">~39</span>
+                      <span style="font-size: 12px; color: var(--text-tertiary);">(6.0%)</span>
+                    </td>
+                    <td>
+                      <span style="font-style: italic; color: var(--text-secondary);">"Nice app", "Love this service", "Radhe Radhe"</span>
+                    </td>
+                    <td><span class="pill-tag" style="background: var(--surface-gray); color: var(--text-secondary);">Not Search (General)</span></td>
+                  </tr>
+                  <tr style="background: #FDF9EC;">
+                    <td>
+                      <strong style="color: #B06000;">Vague Search Complaints</strong>
+                      <div style="font-size: 11.5px; color: var(--text-secondary);">General dissatisfaction, missing memory details</div>
+                    </td>
+                    <td>
+                      <span style="font-weight: 700; font-size: 14px; color: #B06000;">17</span>
+                      <span style="font-size: 12px; color: var(--text-tertiary);">(2.6%)</span>
+                    </td>
+                    <td>
+                      <span style="font-style: italic; color: var(--text-secondary);">"Search got worse after the update", "Hard to find pictures" (did not give details)</span>
+                    </td>
+                    <td><span class="pill-tag" style="background: var(--tint-yellow); color: #B06000; border-color: #FFE7A5; font-weight: 600;">Search (Vague)</span></td>
+                  </tr>
+                  <tr style="background: #F3F8FE;">
+                    <td>
+                      <strong style="color: var(--primary-blue);">Detailed Search Failures (Our 16 Quotes)</strong>
+                      <div style="font-size: 11.5px; color: var(--text-secondary);">Full context: remembered cues vs what was typed</div>
+                    </td>
+                    <td>
+                      <span style="font-weight: 700; font-size: 14px; color: var(--primary-blue);">16</span>
+                      <span style="font-size: 12px; color: var(--text-tertiary);">(2.5%)</span>
+                    </td>
+                    <td>
+                      <span style="font-style: italic; color: var(--text-primary); font-weight: 500;">Gave the exact story: what they remembered, what they typed, and why search failed</span>
+                    </td>
+                    <td><span class="pill-tag" style="background: var(--tint-blue); color: var(--primary-blue); border-color: #C2E7FF; font-weight: 700;">Verified Evidence</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
-          <div class="breakdown-takeaway-bar">
-            <strong>Key Insight on Search Reviews:</strong> Only <strong>33 reviews total (5.1%)</strong> were specifically about Google Photos search. While 17 users left vague comments ("search is harder now"), <strong>16 users provided the exact forensic stories</strong> (what they remembered vs what they typed) that enabled us to identify the 8 concrete search problems and fix them.
+            <div class="breakdown-takeaway-bar">
+              <strong>Key Insight on Search Reviews:</strong> Only <strong>33 reviews total (5.1%)</strong> were specifically about Google Photos search. While 17 users left vague comments ("search is harder now"), <strong>16 users provided the exact forensic stories</strong> (what they remembered vs what they typed) that enabled us to identify the 8 concrete search problems and fix them.
+            </div>
           </div>
         </div>
       </div>
@@ -3435,6 +3490,28 @@
 
     function triggerAuditReport() {
       showToast("All reports verified: Zero personal info, 100% real user quotes!");
+    }
+
+    function toggleReviewBreakdown() {
+      const body = document.getElementById('reviewBreakdownBody');
+      const text = document.getElementById('breakdownToggleText');
+      const icon = document.getElementById('breakdownChevronIcon');
+      const container = document.getElementById('reviewBreakdownContainer');
+      if (!body) return;
+      const isHidden = body.style.display === 'none' || !body.classList.contains('open');
+      if (isHidden) {
+        body.style.display = 'block';
+        body.classList.add('open');
+        if (container) container.classList.add('open');
+        if (text) text.textContent = 'Hide Breakdown';
+        if (icon) icon.style.transform = 'rotate(180deg)';
+      } else {
+        body.style.display = 'none';
+        body.classList.remove('open');
+        if (container) container.classList.remove('open');
+        if (text) text.textContent = 'Click to Expand';
+        if (icon) icon.style.transform = 'rotate(0deg)';
+      }
     }
 
     // Dynamic Evidence Scale Pipeline Metrics Loader
